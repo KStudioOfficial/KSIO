@@ -9,6 +9,7 @@
 */
 
 #include "helpers.h"
+#include "JuceHeader.h"
 
 auto streamToVector (juce::InputStream& stream) {
     using namespace juce;
@@ -46,8 +47,8 @@ const char* getMimeForExtension (const juce::String& extension) {
 }
 
 std::optional<Resource> getResource(const juce::String& url) {
-    static const auto resourceFileRoot = juce::File("../../../../Frontend/build");
-    std::cout << resourceFileRoot.getFullPathName() << std::endl;
+    static const auto resourceFileRoot = juce::File::getSpecialLocation(juce::File::SpecialLocationType::currentApplicationFile).getParentDirectory().getParentDirectory().getParentDirectory().getParentDirectory().getParentDirectory().getParentDirectory().getChildFile("Frontend/build");
+//    static const auto resourceFileRoot = juce::File("/Users/pieface3450/Dropbox/coding_projects/c++/KSIO/Frontend/build");
     const auto resourceToRetreive = url == "/" ? "index.html" : url.fromFirstOccurrenceOf("/", false, false);
     const auto resource = resourceFileRoot.getChildFile(resourceToRetreive).createInputStream();
     if (resource) {
