@@ -1,0 +1,4 @@
+.DS_Store
+/Backend/Builds/*
+/Frontend/build/*
+/Frontend/node_modules/*
