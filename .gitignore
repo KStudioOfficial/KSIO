@@ -2,3 +2,4 @@
 /Backend/Builds/*
 /Frontend/build/*
 /Frontend/node_modules/*
+.idea/
